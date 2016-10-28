@@ -13,7 +13,7 @@ newest_id_to_get=$(\
 
 
 #get last x tweets
-for ((i=1;i<=10;i++)); do 
+for ((i=1;i<=20;i++)); do 
 	tweets=$( \
 		curl -s --compressed "https://mobile.twitter.com/i/rw/profile/timeline?max_id=$newest_id_to_get&screen_name=ESPNStatsInfo&type=tweets" | \
 		tr -d '\n' | \
