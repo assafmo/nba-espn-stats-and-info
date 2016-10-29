@@ -12,8 +12,9 @@ newest_id_to_get=$(\
 )
 
 
-#get last x tweets
-for ((i=1;i<=20;i++)); do 
+#get last x*20 tweets
+x=10
+for ((i=1;i<=x;i++)); do 
 	tweets=$( \
 		curl -s --compressed "https://mobile.twitter.com/i/rw/profile/timeline?max_id=$newest_id_to_get&screen_name=ESPNStatsInfo&type=tweets" | \
 		tr -d '\n' | \
@@ -35,6 +36,8 @@ for ((i=1;i<=20;i++)); do
 	fi
 
 	newest_id_to_get=$(echo "$tweets" | tail -1 | awk -F '"' '{print $2}')
+
+	echo "$i $x" | awk '{print 100*$1/$2 "%..."}'
 done
 
 echo '</center></body></<html>' >> index.html
