@@ -1,6 +1,12 @@
 #!/bin/bash
 
-echo '<html><head><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></head><body><center>' > index.html
+echo '<html>' > index.html
+echo '<head>' >> index.html
+echo '<script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>' >> index.html
+echo '<script src="loader.js" charset="utf-8"></script>' >> index.html
+echo '</head>' >> index.html
+echo '<body>' >> index.html
+echo '<center>' >> index.html
 
 newest_id_to_get=$(\
 	curl -s --compressed 'https://twitter.com/ESPNStatsInfo' | \
@@ -40,4 +46,6 @@ for ((i=1;i<=x;i++)); do
 	echo "$i $x" | awk '{print 100*$1/$2 "%..."}'
 done
 
-echo '</center></body></<html>' >> index.html
+echo '</center>' >> index.html
+echo '</body>' >> index.html
+echo '</html>' >> index.html
