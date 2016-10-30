@@ -2,8 +2,8 @@
 
 echo '<html>' > index.html
 echo '<head>' >> index.html
-echo '<script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>' >> index.html
-echo '<script src="loader.js" charset="utf-8"></script>' >> index.html
+echo '<title>NBA ESPN Stats & Info</title>' >> index.html
+echo '<meta charset="UTF-8">' >> index.html
 echo '</head>' >> index.html
 echo '<body>' >> index.html
 echo '<center>' >> index.html
@@ -18,7 +18,7 @@ newest_id_to_get=$(\
 )
 
 
-#get last x*20 tweets
+#get last x pages of tweets
 x=10
 for ((i=1;i<=x;i++)); do 
 	tweets=$( \
@@ -47,5 +47,6 @@ for ((i=1;i<=x;i++)); do
 done
 
 echo '</center>' >> index.html
+echo '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>' >> index.html
 echo '</body>' >> index.html
 echo '</html>' >> index.html
