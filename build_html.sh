@@ -58,6 +58,6 @@ sed 's/<script.*script>/ /g' >> index.html
 
 echo '</div>' >> index.html
 echo '</center>' >> index.html
-echo '<script charset="utf-8">twttr.widgets.load(document.getElementById("content")); setTimeout(function(){document.getElementById("loading").style.height=0; document.getElementById("content").style.display="";},3000);</script>' >> index.html
+echo '<script charset="utf-8">twttr.widgets.load(document.getElementById("content")); setTimeout(function(){document.getElementById("loading").style.height=0; document.getElementById("content").style.display="";},3000); setTimeout(function(){window.location=window.location;},60000);</script>' >> index.html
 echo '</body>' >> index.html
 echo '</html>' >> index.html
