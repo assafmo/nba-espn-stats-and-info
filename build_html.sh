@@ -53,6 +53,6 @@ while [ $count -lt $max ]; do
 done
 
 echo '</center>' >> index.html
-echo '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>' >> index.html
+echo '<script async src="twitter-widgets.js" charset="utf-8"></script>' >> index.html
 echo '</body>' >> index.html
 echo '</html>' >> index.html
