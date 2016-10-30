@@ -8,7 +8,7 @@ echo '</head>' >> index.html
 echo '<body style="background-color: #efefef;">' >> index.html
 echo '<script src="twitter-widgets.js" charset="utf-8"></script>' >> index.html
 echo '<center>' >> index.html
-echo '<img id="loading" src="https://s-media-cache-ak0.pinimg.com/originals/a7/2f/fd/a72ffd6fe16417fabd51b58f61f40341.gif" />' >> index.html
+echo '<img id="loading" src="loading.gif" />' >> index.html
 echo '<div id="content" style="display: none;">' >> index.html
 
 
