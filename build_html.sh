@@ -5,8 +5,12 @@ echo '<head>' >> index.html
 echo '<title>NBA ESPN Stats & Info</title>' >> index.html
 echo '<meta charset="UTF-8">' >> index.html
 echo '</head>' >> index.html
-echo '<body>' >> index.html
+echo '<body style="background-color: #efefef;">' >> index.html
+echo '<script src="twitter-widgets.js" charset="utf-8"></script>' >> index.html
 echo '<center>' >> index.html
+echo '<img id="loading" src="https://s-media-cache-ak0.pinimg.com/originals/a7/2f/fd/a72ffd6fe16417fabd51b58f61f40341.gif" />' >> index.html
+echo '<div id="content" style="display: none;">' >> index.html
+
 
 newest_id_to_get=$(\
 	curl -s --compressed 'https://twitter.com/ESPNStatsInfo' | \
@@ -52,7 +56,8 @@ xargs -n 1 -I {} curl -s --compressed "https://api.twitter.com/1.1/statuses/oemb
 jq --raw-output '.html' | \
 sed 's/<script.*script>/ /g' >> index.html
 
+echo '</div>' >> index.html
 echo '</center>' >> index.html
-echo '<script async src="twitter-widgets.js" charset="utf-8"></script>' >> index.html
+echo '<script charset="utf-8">twttr.widgets.load(document.getElementById("content")); setTimeout(function(){document.getElementById("loading").style.height=0; document.getElementById("content").style.display="";},3000);</script>' >> index.html
 echo '</body>' >> index.html
 echo '</html>' >> index.html
