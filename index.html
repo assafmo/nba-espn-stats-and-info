@@ -3,8 +3,11 @@
 <title>NBA ESPN Stats & Info</title>
 <meta charset="UTF-8">
 </head>
-<body>
+<body style="background-color: #efefef;">
+<script src="twitter-widgets.js" charset="utf-8"></script>
 <center>
+<img id="loading" src="https://s-media-cache-ak0.pinimg.com/originals/a7/2f/fd/a72ffd6fe16417fabd51b58f61f40341.gif" />
+<div id="content" style="display: none;">
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Stephen Curry has scored 25 pts in last 8 games vs Suns.<br><br>Last player w/ 9 straight 25-pt gms vs Suns was Michael Jordan (via <a href="https://twitter.com/EliasSports">@EliasSports</a>)</p>&mdash; ESPN Stats &amp; Info (@ESPNStatsInfo) <a href="https://twitter.com/ESPNStatsInfo/status/792844779893633024">October 30, 2016</a></blockquote>
  
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Kevin Durant can become 3rd player in <a href="https://twitter.com/warriors">@warriors</a> history w/ 25 pts &amp; 10 reb in each of 1st 3 games of season (Jerry Lucas &amp; Wilt Chamberlain) <a href="https://t.co/erhyVzYB3l">pic.twitter.com/erhyVzYB3l</a></p>&mdash; ESPN Stats &amp; Info (@ESPNStatsInfo) <a href="https://twitter.com/ESPNStatsInfo/status/792841007247360000">October 30, 2016</a></blockquote>
@@ -55,7 +58,8 @@
  
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">LeBron James: trying to become 1st to have 2 straight triple-doubles to open NBA season since Magic Johnson (1982-83)<br><br>via <a href="https://twitter.com/EliasSports">@eliassports</a></p>&mdash; ESPN Stats &amp; Info (@ESPNStatsInfo) <a href="https://twitter.com/ESPNStatsInfo/status/792155811283861504">October 29, 2016</a></blockquote>
  
+</div>
 </center>
-<script async src="twitter-widgets.js" charset="utf-8"></script>
+<script charset="utf-8">twttr.widgets.load(document.getElementById("content")); setTimeout(function(){document.getElementById("loading").style.height=0; document.getElementById("content").style.display="";},3000);</script>
 </body>
 </html>
