@@ -21,7 +21,8 @@ newest_id_to_get=$(\
 #get last max tweets
 max=25
 count=0
-pages=0
+page_count=0
+found_ids=''
 while [ $count -lt $max ]; do 
 	tweets=$( \
 		curl -s --compressed "https://mobile.twitter.com/i/rw/profile/timeline?max_id=$newest_id_to_get&screen_name=ESPNStatsInfo&type=tweets" | \
@@ -30,27 +31,26 @@ while [ $count -lt $max ]; do
 		grep -F TweetText \
 	)
 
-	found_ids=$( \
+	page=$( \
 		echo "$tweets" | \
 		grep -F -f keywords.list | \
 		awk -F '"' '{print $2}' \
 	)
 
-	if [ ! -z "$found_ids" ]; then
-		echo "$found_ids" | \
-		xargs -n 1 -I {} curl -s --compressed "https://api.twitter.com/1.1/statuses/oembed.json?id={}" | \
-		jq --raw-output '.html' | \
-		sed 's/<script.*script>/ /g' >> index.html
-		
-		count=$((count+$(echo "$found_ids" | wc -l)))
-	fi
+	found_ids=$(printf "$found_ids\n$page" | sort -r -n | uniq)
+	
+	count=$(echo "$found_ids" | wc -l)
+	page_count=$((page_count+1))
+	
+	echo "$count $max $page_count" | awk '{print "found=" $1, "looking_for=" $2, "page_count=" $3, "progress=" 100*$1/$2 "%"}'
 
 	newest_id_to_get=$(echo "$tweets" | tail -1 | awk -F '"' '{print $2}')
-
-	pages=$((pages+1))
-
-	echo "$count $max $pages" | awk '{print "found=" $1, "looking_for=" $2, "pages=" $3, "progress=" 100*$1/$2 "%"}'
 done
+
+echo "$found_ids" | \
+xargs -n 1 -I {} curl -s --compressed "https://api.twitter.com/1.1/statuses/oembed.json?id={}" | \
+jq --raw-output '.html' | \
+sed 's/<script.*script>/ /g' >> index.html
 
 echo '</center>' >> index.html
 echo '<script async src="twitter-widgets.js" charset="utf-8"></script>' >> index.html
