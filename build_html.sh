@@ -6,7 +6,7 @@ echo '<title>NBA ESPN Stats & Info</title>' >> index.html
 echo '<meta charset="UTF-8">' >> index.html
 echo '</head>' >> index.html
 echo '<body style="background-color: #efefef;">' >> index.html
-echo '<script src="twitter-widgets.js" charset="utf-8"></script>' >> index.html
+echo '<script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>' >> index.html
 echo '<center>' >> index.html
 echo '<img id="loading" src="loading.gif" />' >> index.html
 echo '<div id="content" style="display: none;">' >> index.html
