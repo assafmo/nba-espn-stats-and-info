@@ -51,13 +51,13 @@ while [ $count -lt $max ]; do
 	newest_id_to_get=$(echo "$tweets" | tail -1 | awk -F '"' '{print $2}')
 done
 
-echo "$found_ids" | \
+echo "$found_ids" | head -$max | \
 xargs -n 1 -I {} curl -s --compressed "https://api.twitter.com/1.1/statuses/oembed.json?id={}" | \
 jq --raw-output '.html' | \
 sed 's/<script.*script>/ /g' >> index.html
 
 echo '</div>' >> index.html
 echo '</center>' >> index.html
-echo '<script charset="utf-8">twttr.widgets.load(document.getElementById("content")); setTimeout(function(){document.getElementById("loading").style.height=0; document.getElementById("content").style.display="";},3000); setTimeout(function(){window.location=window.location;},60000);</script>' >> index.html
+echo '<script charset="utf-8">twttr.events.bind("loaded",function(){setTimeout(function(){document.getElementById("loading").style.height=0; document.getElementById("content").style.display="";},1500); setTimeout(function(){window.location=window.location;},60000);}); twttr.widgets.load(document.getElementById("content"));</script>' >> index.html
 echo '</body>' >> index.html
 echo '</html>' >> index.html
