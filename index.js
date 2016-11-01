@@ -1,5 +1,5 @@
+var currentVersion = document.getElementById('version').getAttribute('content');
 function load() {
-	var currentVersion = document.getElementById('version').getAttribute('content');
 
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', 'index.html');
@@ -13,8 +13,12 @@ function load() {
 
 		if (newVersion !== currentVersion) {
 			console.log('new');
+			currentVersion = newVersion;
 			// twttr.widgets.load(doc.getElementById('content'));
-			document.getElementById("content").remove();
+			document.getElementById('content').remove();
+
+			var domToInsertAfter = document.getElementById('loader');
+			domToInsertAfter.parentNode.insertBefore(doc.getElementById('content'), domToInsertAfter.nextSibling);
 		} else {
 			console.log('same');
 		}
