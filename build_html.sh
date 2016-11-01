@@ -7,8 +7,9 @@ echo '<meta charset="UTF-8">' >> index.html
 echo '</head>' >> index.html
 echo '<body style="background-color: #efefef;">' >> index.html
 echo '<center>' >> index.html
-echo '<img id="loading" src="loading.gif" />' >> index.html
-echo '<div id="content" style="display: none;">' >> index.html
+echo '<link rel="stylesheet" type="text/css" href="index.css"></link>' >> index.html
+echo '<div id="loader"></div>' >> index.html
+echo '<div id="content">' >> index.html
 
 
 newest_id_to_get=$(\
@@ -51,7 +52,7 @@ while [ $count -lt $max ]; do
 done
 
 echo "$found_ids" | head -$max | \
-xargs -n 1 -I {} curl -s --compressed "https://api.twitter.com/1.1/statuses/oembed.json?id={}" | \
+xargs --verbose -n 1 -I {} curl -s --compressed "https://api.twitter.com/1.1/statuses/oembed.json?id={}" | \
 jq --raw-output '.html' | \
 sed 's/<script.*script>/ /g' >> index.html
 

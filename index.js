@@ -15,8 +15,8 @@
 // }
 
 window.onload = function () {
-	document.getElementById('loading').style.height = 0;
-	document.getElementById('content').style.display = '';
+	document.getElementById('loader').style.display = 'none';
+	document.getElementById('content').style.display = 'block';
 }
 
 //reload every 60 seconds
