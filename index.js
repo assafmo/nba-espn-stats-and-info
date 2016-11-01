@@ -1,11 +1,14 @@
 function load() {
 	var currentVersion = document.getElementById('version').getAttribute('content');
 
-	var client = new XMLHttpRequest();
-	client.open('GET', 'index.html');
-	client.onreadystatechange = function () {
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', 'index.html');
+	xhr.onreadystatechange = function () {
+		if (xhr.readyState !== XMLHttpRequest.DONE || xhr.status !== 200)
+			return;
+
 		var parser = new DOMParser();
-		var doc = parser.parseFromString(client.responseText, 'text/html');
+		var doc = parser.parseFromString(xhr.responseText, 'text/html');
 		var newVersion = doc.getElementById('version').getAttribute('content');
 
 		if (newVersion !== currentVersion) {
@@ -16,7 +19,7 @@ function load() {
 			console.log('same');
 		}
 	}
-	client.send();
+	xhr.send();
 }
 
 window.onload = function () {
