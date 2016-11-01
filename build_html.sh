@@ -6,7 +6,7 @@ echo '<html>' > index.html
 echo '<head>' >> index.html
 echo '<title>NBA ESPN Stats & Info</title>' >> index.html
 echo '<meta charset="UTF-8">' >> index.html
-echo "<meta name='version' content='$version'>" >> index.html
+echo "<meta id='version' content='$version'>" >> index.html
 echo '</head>' >> index.html
 echo '<body style="background-color: #efefef;">' >> index.html
 echo '<center>' >> index.html
