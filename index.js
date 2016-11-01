@@ -1,25 +1,30 @@
-// window.currentHtml = document.body.innerHtml.match(/<div id="content".*\/div>/)[0];
+function load() {
+	var currentVersion = document.getElementById('version').getAttribute('content');
 
-// function loadIndex() {
-// 	var client = new XMLHttpRequest();
-// 	client.open('GET', 'index.html');
-// 	client.onreadystatechange = function () {
-// 		var data = client.responseText.match(/<div id="content".*\/div>/)[0];
-// 		if (data !== window.currentHtml) {
-// 			document.getElementById("content").outerHTML = '';
-// 			document.body.insertAdjacentHTML('beforeend', data);
-// 			twttr.widgets.load(document.getElementById("content"));
-// 		}
-// 	}
-// 	client.send();
-// }
+	var client = new XMLHttpRequest();
+	client.open('GET', 'index.html');
+	client.onreadystatechange = function () {
+		var parser = new DOMParser();
+		var doc = parser.parseFromString(client.responseText);
+		var newVersion = doc.getElementById('version').getAttribute('content');
+
+		if (newVersion !== currentVersion) {
+			console.log('new');
+			// twttr.widgets.load(doc.getElementById('content'));
+			document.getElementById("content").remove();
+		} else{
+			console.log('same');
+		}
+	}
+	client.send();
+}
 
 window.onload = function () {
 	document.getElementById('loader').style.display = 'none';
 	document.getElementById('content').style.display = 'block';
 }
 
-//reload every 60 seconds
+//reload every  seconds
 setInterval(function () {
-	window.location = window.location;
-}, 60 * 1000);
+	load()
+}, 5 * 1000);
