@@ -8,7 +8,6 @@ echo '</head>' >> index.html
 echo '<body style="background-color: #efefef;">' >> index.html
 echo '<center>' >> index.html
 echo '<img id="loading" src="loading.gif" />' >> index.html
-echo '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>' >> index.html
 echo '<div id="content" style="display: none;">' >> index.html
 
 
@@ -59,5 +58,7 @@ sed 's/<script.*script>/ /g' >> index.html
 echo '</div>' >> index.html
 echo '</center>' >> index.html
 echo '<script src="index.js" charset="utf-8"></script>' >> index.html
+echo '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>' >> index.html
 echo '</body>' >> index.html
 echo '</html>' >> index.html
+
