@@ -2,7 +2,7 @@ var currentVersion = document.getElementById('version').getAttribute('content');
 function load() {
 
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET', 'index.html');
+	xhr.open('GET', 'https://raw.githubusercontent.com/assafmo/nba-espn-stats-and-info/master/index.html');
 	xhr.onreadystatechange = function () {
 		if (xhr.readyState !== XMLHttpRequest.DONE || xhr.status !== 200)
 			return;
