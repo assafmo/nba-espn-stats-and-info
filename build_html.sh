@@ -6,9 +6,9 @@ echo '<title>NBA ESPN Stats & Info</title>' >> index.html
 echo '<meta charset="UTF-8">' >> index.html
 echo '</head>' >> index.html
 echo '<body style="background-color: #efefef;">' >> index.html
-echo '<script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>' >> index.html
 echo '<center>' >> index.html
 echo '<img id="loading" src="loading.gif" />' >> index.html
+echo '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>' >> index.html
 echo '<div id="content" style="display: none;">' >> index.html
 
 
@@ -58,6 +58,6 @@ sed 's/<script.*script>/ /g' >> index.html
 
 echo '</div>' >> index.html
 echo '</center>' >> index.html
-echo '<script charset="utf-8">twttr.events.bind("loaded",function(){setTimeout(function(){document.getElementById("loading").style.height=0; document.getElementById("content").style.display="";},1500); setTimeout(function(){window.location=window.location;},60000);}); twttr.widgets.load(document.getElementById("content"));</script>' >> index.html
+echo '<script src="index.js" charset="utf-8"></script>' >> index.html
 echo '</body>' >> index.html
 echo '</html>' >> index.html
