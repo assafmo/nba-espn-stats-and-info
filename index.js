@@ -12,9 +12,10 @@ function load() {
 		var newVersion = doc.getElementById('version').getAttribute('content');
 
 		if (newVersion !== currentVersion) {
+			twttr.widgets.load(doc.getElementById('content'));
+			
 			console.log('new');
 			currentVersion = newVersion;
-			// twttr.widgets.load(doc.getElementById('content'));
 			document.getElementById('content').remove();
 
 			var domToInsert = doc.getElementById('content');
@@ -35,5 +36,5 @@ window.onload = function () {
 
 //reload every  seconds
 setInterval(function () {
-	load()
-}, 5 * 1000);
+	window.location = window.location;
+}, 90 * 1000);
