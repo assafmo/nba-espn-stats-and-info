@@ -5,14 +5,14 @@ function load() {
 	client.open('GET', 'index.html');
 	client.onreadystatechange = function () {
 		var parser = new DOMParser();
-		var doc = parser.parseFromString(client.responseText);
+		var doc = parser.parseFromString(client.responseText, 'text/html');
 		var newVersion = doc.getElementById('version').getAttribute('content');
 
 		if (newVersion !== currentVersion) {
 			console.log('new');
 			// twttr.widgets.load(doc.getElementById('content'));
 			document.getElementById("content").remove();
-		} else{
+		} else {
 			console.log('same');
 		}
 	}
