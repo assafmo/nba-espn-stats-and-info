@@ -13,7 +13,7 @@ function load() {
 
 		if (newVersion !== currentVersion) {
 			twttr.widgets.load(doc.getElementById('content'));
-			
+
 			console.log('new');
 			currentVersion = newVersion;
 			document.getElementById('content').remove();
@@ -30,8 +30,10 @@ function load() {
 }
 
 window.onload = function () {
-	document.getElementById('loader').style.display = 'none';
-	document.getElementById('content').style.display = 'block';
+	setTimeout(function () {
+		document.getElementById('loader').style.display = 'none';
+		document.getElementById('content').style.display = 'block';
+	}, 1000);
 }
 
 //reload every  seconds
