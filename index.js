@@ -17,8 +17,10 @@ function load() {
 			// twttr.widgets.load(doc.getElementById('content'));
 			document.getElementById('content').remove();
 
+			var domToInsert = doc.getElementById('content');
+			domToInsert.style.display = 'block';
 			var domToInsertAfter = document.getElementById('loader');
-			domToInsertAfter.parentNode.insertBefore(doc.getElementById('content'), domToInsertAfter.nextSibling);
+			domToInsertAfter.parentNode.insertBefore(domToInsert, domToInsertAfter.nextSibling);
 		} else {
 			console.log('same');
 		}
