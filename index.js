@@ -1,4 +1,4 @@
-var currentVersion = document.getElementById('version').getAttribute('content');
+/*var currentVersion = document.getElementById('version').getAttribute('content');
 function load() {
 
 	var xhr = new XMLHttpRequest();
@@ -27,7 +27,7 @@ function load() {
 		}
 	}
 	xhr.send();
-}
+}*/
 
 window.onload = function () {
 	setTimeout(function () {
