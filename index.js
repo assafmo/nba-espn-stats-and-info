@@ -39,4 +39,4 @@ window.onload = function () {
 //reload every  seconds
 setInterval(function () {
 	window.location = window.location;
-}, 90 * 1000);
+}, 180 * 1000);
