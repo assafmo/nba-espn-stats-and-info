@@ -35,8 +35,3 @@ window.onload = function () {
 		document.getElementById('content').style.display = 'block';
 	}, 1000);
 }
-
-//reload every  seconds
-setInterval(function () {
-	window.location = window.location;
-}, 180 * 1000);
