@@ -7,7 +7,7 @@ echo '<head>' >> index.html
 echo '<title>NBA ESPN Stats & Info</title>' >> index.html
 echo '<meta charset="UTF-8">' >> index.html
 echo '<meta name="viewport" content="width=device-width, initial-scale=1" />' >> index.html
-#echo "<meta id='version' content='$version'>" >> index.html
+echo '<script async src="https://getmirrorshades.com/agent.js" data-siteId="MA-ARPDDX-NNR"></script>' >> index.html
 echo '</head>' >> index.html
 echo '<body style="background-color: #efefef;">' >> index.html
 echo '<center>' >> index.html
