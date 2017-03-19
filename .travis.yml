@@ -5,8 +5,9 @@ before_install:
 script:
   - ./build_keywords.sh
   - ./build_html.sh
-  - git remote set-url "https://$username:$password@github.com/assafmo/nba-espn-stats-and-info.git"
-  - git config user.name nba-espn-stats-and-info-bot
+  - git remote set-url https://$username:$password@github.com/assafmo/nba-espn-stats-and-info.git
+  - git config user.name $username
+  - git config user.email $EMAIL
   - git add index.html keywords.list
   - git commit -m "`date -Iseconds`"
   - git push
