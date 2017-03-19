@@ -2,7 +2,7 @@
 
 #version=$(date -Iseconds)
 
-echo '<html>' > index.html
+echo '<html> ' > index.html
 echo '<head>' >> index.html
 echo '<title>NBA ESPN Stats & Info</title>' >> index.html
 echo '<meta charset="UTF-8">' >> index.html
