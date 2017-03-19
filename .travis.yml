@@ -1,4 +1,4 @@
-sudo: required
+#sudo: required
 
 before_install:
   - sudo apt-get -qq update
@@ -8,9 +8,9 @@ script:
   - ./build_keywords.sh
   - ./build_html.sh
 
-deploy:
-  - provider: pages
-  - skip_cleanup: true
-  - github_token: $GITHUB_TOKEN
-  - on:
-    - branch: master
+#deploy:
+#  - provider: pages
+#  - skip_cleanup: true
+#  - github_token: $GITHUB_TOKEN
+#  - on:
+#    - branch: master
