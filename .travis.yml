@@ -5,10 +5,8 @@ before_install:
 script:
   - ./build_keywords.sh
   - ./build_html.sh
-
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  on:
-    branch: master
+  - git remote set-url "https://$username:$password@github.com/assafmo/nba-espn-stats-and-info.git"
+  - git config user.name nba-espn-stats-and-info-bot
+  - git add index.html keywords.list
+  - git commit -m "`date -Iseconds`"
+  - git push
