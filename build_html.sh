@@ -13,7 +13,7 @@ echo '<body style="background-color: #efefef;">' >> index.html
 echo '<center>' >> index.html
 echo '<link rel="stylesheet" type="text/css" href="index.css"></link>' >> index.html
 echo '<div id="loader"></div>' >> index.html
-echo '<div id="content">' >> index.html
+echo '<div id="content">banana' >> index.html
 
 
 newest_id_to_get=$(\
